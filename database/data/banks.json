@@ -1,0 +1,188 @@
+[
+  {
+    "name": "Access Bank",
+    "code": "044",
+    "kkpay_id": "044",
+    "nekpay_id": "NGR044"
+  },
+  {
+    "name": "Ecobank Nigeria",
+    "code": "050",
+    "kkpay_id": "050",
+    "nekpay_id": "NGR050"
+  },
+  {
+    "name": "Enterprise Bank",
+    "code": "084",
+    "kkpay_id": "084",
+    "nekpay_id": "NGR000019"
+  },
+  {
+    "name": "Fidelity Bank",
+    "code": "070",
+    "kkpay_id": "070",
+    "nekpay_id": "NGR070"
+  },
+  {
+    "name": "First Bank of Nigeria",
+    "code": "011",
+    "kkpay_id": "011",
+    "nekpay_id": "NGR011"
+  },
+  {
+    "name": "First City Monument Bank",
+    "code": "214",
+    "kkpay_id": "214",
+    "nekpay_id": "NGR214"
+  },
+  {
+    "name": "Globus Bank",
+    "code": "103",
+    "kkpay_id": "103",
+    "nekpay_id": "NGR00103"
+  },
+  {
+    "name": "Guaranty Trust Bank",
+    "code": "058",
+    "kkpay_id": "058",
+    "nekpay_id": "NGR058"
+  },
+  {
+    "name": "Jaiz Bank",
+    "code": "301",
+    "kkpay_id": "301",
+    "nekpay_id": "NGR301"
+  },
+  {
+    "name": "Keystone Bank",
+    "code": "082",
+    "kkpay_id": "082",
+    "nekpay_id": "NGR082"
+  },
+  {
+    "name": "PalmPay",
+    "code": "100033",
+    "kkpay_id": "100033",
+    "nekpay_id": "NGR999991"
+  },
+  {
+    "name": "Parallex Bank",
+    "code": "526",
+    "kkpay_id": "104",
+    "nekpay_id": "NGR526"
+  },
+  {
+    "name": "Polaris Bank",
+    "code": "076",
+    "kkpay_id": "076",
+    "nekpay_id": "NGR076"
+  },
+  {
+    "name": "Providus Bank",
+    "code": "101",
+    "kkpay_id": "101",
+    "nekpay_id": "NGR101"
+  },
+  {
+    "name": "Stanbic IBTC Bank",
+    "code": "221",
+    "kkpay_id": "221",
+    "nekpay_id": "NGR221"
+  },
+  {
+    "name": "Standard Chartered Bank",
+    "code": "068",
+    "kkpay_id": "068",
+    "nekpay_id": "NGR068"
+  },
+  {
+    "name": "Sterling Bank",
+    "code": "232",
+    "kkpay_id": "232",
+    "nekpay_id": "NGR232"
+  },
+  {
+    "name": "Suntrust Bank",
+    "code": "100",
+    "kkpay_id": "100",
+    "nekpay_id": "NGR100"
+  },
+  {
+    "name": "TAJ Bank",
+    "code": "302",
+    "kkpay_id": "302",
+    "nekpay_id": "NGR302"
+  },
+  {
+    "name": "Union Bank of Nigeria",
+    "code": "032",
+    "kkpay_id": "032",
+    "nekpay_id": "NGR032"
+  },
+  {
+    "name": "United Bank for Africa",
+    "code": "033",
+    "kkpay_id": "033",
+    "nekpay_id": "NGR033"
+  },
+  {
+    "name": "Unity Bank",
+    "code": "215",
+    "kkpay_id": "215",
+    "nekpay_id": "NGR215"
+  },
+  {
+    "name": "Wema Bank",
+    "code": "035",
+    "kkpay_id": "035",
+    "nekpay_id": "NGR035"
+  },
+  {
+    "name": "Zenith Bank",
+    "code": "057",
+    "kkpay_id": "057",
+    "nekpay_id": "NGR057"
+  },
+  {
+    "name": "Abbey Mortgage Bank",
+    "code": "070010",
+    "kkpay_id": "070010",
+    "nekpay_id": "NGR801"
+  },
+  {
+    "name": "Opay",
+    "code": "305",
+    "kkpay_id": "305",
+    "nekpay_id": "NGR20009"
+  },
+  {
+    "name": "Premium Trust Bank",
+    "code": "105",
+    "kkpay_id": "105",
+    "nekpay_id": "NGR031"
+  },
+  {
+    "name": "Moniepoint Microfinance Bank",
+    "code": "090405",
+    "kkpay_id": "50515",
+    "nekpay_id": "NGR999993"
+  },
+  {
+    "name": "Momo PSB",
+    "code": "120003",
+    "kkpay_id": "120003",
+    "nekpay_id": "NGR1543"
+  },
+  {
+    "name": "VFD Microfinance Bank",
+    "code": "566",
+    "kkpay_id": "566",
+    "nekpay_id": "NGR566"
+  },
+  {
+    "name": "One Finance",
+    "code": "940",
+    "kkpay_id": "940",
+    "nekpay_id": "NGR565"
+  }
+]

@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnify - Digital Earning Platform | Reviews & FAQ</title>
+    <style>
+        /* Base Reset & Variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #030712;
+            color: #e5e7eb;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Ambient Glow Backgrounds */
+        .ambient-1 {
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 500px;
+            height: 500px;
+            background: rgba(16, 185, 129, 0.05);
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .ambient-2 {
+            position: absolute;
+            top: 1200px;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(234, 179, 8, 0.03);
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .ambient-3 {
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 600px;
+            height: 300px;
+            background: rgba(16, 185, 129, 0.02);
+            border-radius: 50%;
+            filter: blur(130px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Layout Structure */
+        .max-w-7xl {
+            max-width: 80rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (min-width: 640px) {
+            .max-w-7xl {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .max-w-7xl {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /* Glassmorphism Components */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            height: 5rem;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        /* Branding Elements */
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .logo-box {
+            height: 2.5rem;
+            width: 2.5rem;
+            background: linear-gradient(135deg, #10b981, #eab308);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #030712;
+            font-weight: 800;
+            font-size: 1.25rem;
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2);
+        }
+        .logo-text-main {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.025em;
+            display: block;
+            line-height: 1;
+        }
+        .logo-text-sub {
+            font-size: 10px;
+            color: #34d399;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            display: block;
+            text-transform: uppercase;
+            margin-top: 0.125rem;
+        }
+
+        /* Action Buttons */
+        .btn-primary {
+            display: inline-block;
+            padding: 0.625rem 1.25rem;
+            background: linear-gradient(to right, #10b981, #059669);
+            color: #030712;
+            font-weight: 700;
+            font-size: 0.875rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(to right, #34d399, #10b981);
+            transform: translateY(-1px);
+        }
+
+        /* Section Layouts */
+        main {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        .section-row {
+            display: grid;
+            grid-template-cols: 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+        @media (min-width: 1024px) {
+            .section-row {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+                gap: 3rem;
+            }
+            .col-span-6 { grid-column: span 6 / span 6; }
+            .order-lg-1 { order: 1; }
+            .order-lg-2 { order: 2; }
+        }
+
+        /* Visual Media Frame */
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 28rem;
+            margin: 0 auto;
+        }
+        @media (min-width: 1024px) {
+            .image-wrapper {
+                max-width: 100%;
+            }
+        }
+        .image-glow-border {
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(90deg, #10b981, #eab308);
+            border-radius: 1.5rem;
+            filter: blur(8px);
+            opacity: 0.15;
+            transition: opacity 0.5s ease;
+        }
+        .image-wrapper:hover .image-glow-border {
+            opacity: 0.3;
+        }
+        .image-container {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #111827;
+            
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Typography & Info Design */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        .badge-green {
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #34d399;
+        }
+        .badge-gold {
+            background-color: rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            color: #facc15;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .section-title { font-size: 2.5rem; }
+        }
+        .gradient-text-green {
+            background: linear-gradient(to right, #34d399, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-gold {
+            background: linear-gradient(to right, #facc15, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-teal {
+            background: linear-gradient(to right, #34d399, #2dd4bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-desc {
+            color: #9ca3af;
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+        .highlight-green { color: #34d399; font-weight: 600; }
+        .highlight-white { color: #ffffff; font-weight: 600; }
+
+        /* Info Cards */
+        .info-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1.25rem;
+            border-radius: 1rem;
+            border-left: 4px solid #eab308;
+            max-width: 32rem;
+        }
+        .info-card-label {
+            font-size: 0.75rem;
+            color: rgba(234, 179, 8, 0.8);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+        .info-card-value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+        .value-gold { color: #facc15; }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-top: 0.5rem;
+        }
+        .tag-item {
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        blockquote {
+            border-left: 2px solid #eab308;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #d1d5db;
+            margin-bottom: 1rem;
+        }
+        .underline-decor {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-color: #eab308;
+        }
+        .text-notice-box {
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background-color: rgba(17, 24, 39, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+        .list-unstyled {
+            list-style: none;
+            padding-top: 0.5rem;
+        }
+        .list-unstyled li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.875rem;
+            color: #d1d5db;
+            margin-bottom: 0.75rem;
+        }
+        .list-unstyled li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #34d399;
+            font-weight: 700;
+        }
+        .divider {
+            border: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 6rem;
+        }
+
+        /* Tab Switcher & Pricing Section (kept as original) */
+        .pricing-section {
+            margin-bottom: 6rem;
+        }
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .max-w-3xl { max-width: 48rem; }
+        .pricing-header h2 {
+            font-size: 1.875rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .display-box {
+            display: grid;
+            grid-template-cols: 1fr;
+            gap: 2rem;
+            align-items: center;
+            background: rgba(17, 24, 39, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 40px -10px rgba(34, 197, 94, 0.1);
+        }
+        @media (min-width: 1024px) {
+            .display-box {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+                gap: 3rem;
+                padding: 3rem;
+            }
+            .col-span-5 { grid-column: span 5 / span 5; }
+            .col-span-7 { grid-column: span 7 / span 7; }
+        }
+        .tab-container {
+            display: inline-flex;
+            padding: 0.375rem;
+            background-color: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .tab-btn {
+            background: transparent;
+            border: 0;
+            padding: 0.625rem 1.5rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .tab-btn.active {
+            background: linear-gradient(to right, #10b981, #34d399);
+            color: #030712;
+            font-weight: 700;
+        }
+        .tab-image-container {
+            width: 100%;
+            max-width: 24rem;
+            margin: 0 auto;
+            position: relative;
+            aspect-ratio: 4 / 5;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #030712;
+        }
+        .tab-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .tab-img.active { opacity: 1; }
+        .pane-content { display: none; }
+        .pane-content.active { display: block; }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 640px) { .metrics-grid { grid-template-columns: repeat(3, 1fr); } }
+        .metric-tile {
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .metric-val-green { font-size: 1.125rem; font-weight: 900; color: #34d399; }
+        .metric-val-gold { font-size: 1.125rem; font-weight: 900; color: #facc15; }
+        .pool-banner {
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent);
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            padding: 1.25rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .pool-value { font-size: 1.875rem; font-weight: 900; color: #ffffff; }
+        .alert-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background-color: rgba(6, 78, 59, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            color: #34d399;
+        }
+
+        /* ========== NEW: REVIEWS SECTION ========== */
+        .reviews-section {
+            margin-bottom: 6rem;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        @media (min-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .review-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, border-color 0.2s;
+        }
+        .review-card:hover {
+            border-color: rgba(52, 211, 153, 0.4);
+            transform: translateY(-4px);
+        }
+        .review-stars {
+            display: flex;
+            gap: 0.2rem;
+            margin-bottom: 1rem;
+        }
+        .star-filled {
+            color: #facc15;
+            font-size: 1.1rem;
+        }
+        .star-half {
+            color: #facc15;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        .star-empty {
+            color: #4b5563;
+            font-size: 1.1rem;
+        }
+        .review-text {
+            color: #e5e7eb;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-style: normal;
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        .author-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(145deg, #10b981, #059669);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #030712;
+        }
+        .author-name {
+            font-weight: 700;
+            color: white;
+            font-size: 0.9rem;
+        }
+        .author-role {
+            font-size: 0.7rem;
+            color: #9ca3af;
+        }
+        .review-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            margin-top: 0.5rem;
+            color: #34d399;
+        }
+
+        /* ========== NEW: FAQ SECTION (Accordion) ========== */
+        .faq-section {
+            margin-bottom: 5rem;
+        }
+        .faq-grid {
+            max-width: 3xl;
+            margin-top: 2rem;
+        }
+        .faq-item {
+            background: rgba(17, 24, 39, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            font-weight: 700;
+            color: #f3f4f6;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            transition: background 0.2s;
+        }
+        .faq-question:hover {
+            background: rgba(16, 185, 129, 0.05);
+        }
+        .faq-question span:first-child {
+            flex: 1;
+            letter-spacing: -0.2px;
+        }
+        .faq-icon {
+            font-size: 1.4rem;
+            color: #34d399;
+            transition: transform 0.3s;
+            font-weight: 400;
+        }
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.2s ease;
+            color: #9ca3af;
+            border-top: 0px solid transparent;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.25rem 1.5rem;
+            max-height: 300px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: #090d16;
+            color: #6b7280;
+            font-size: 0.75rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .footer-inner { flex-direction: row; }
+        }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #34d399; }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-1"></div>
+    <div class="ambient-2"></div>
+    <div class="ambient-3"></div>
+
+    <header class="header">
+        <div class="max-w-7xl header-container">
+            <div class="logo-group">
+                <div class="logo-box">E</div>
+                <div>
+                    <span class="logo-text-main">EARNIFY</span>
+                    <span class="logo-text-sub">Digital Platform</span>
+                </div>
+            </div>
+            <div>
+                <a href="#pricing" class="btn-primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl">
+        <!-- original hero & sections (kept intact) -->
+        <section class="section-row">
+            <div class="col-span-6">
+                <div class="image-wrapper"><div class="image-glow-border"></div><div class="image-container"><img src="/IMG_7605.jpeg" alt="Platform UI Overview"></div></div>
+            </div>
+            <div class="col-span-6"><span class="badge badge-green">Mega Gaming Release</span><h1 class="section-title">Introducing Earnify <br><span class="gradient-text-green">KILLER BEAN</span></h1><p class="section-desc">Just by playing killer bean on earnify. It's isn't just about finance—it's a fun tool. Join the excitement with our killer bean feature where you can enjoy your favorite childhood board game and earn real money while playing.</p><div class="info-card"><p class="info-card-label">Guaranteed Rewards</p><p class="info-card-value">WIN OVER <span class="value-gold">₦10K - ₦20K</span></p></div></div>
+        </section>
+        <hr class="divider">
+        <section class="section-row"><div class="col-span-6 order-lg-2"><div class="image-wrapper"><div class="image-glow-border"></div><div class="image-container"><img src="/IMG_7607.jpeg" alt="Advertising Dashboard"></div></div></div><div class="col-span-6 order-lg-1"><span class="badge badge-gold">Advertiser Hub</span><h2 class="section-title">Showcase Your <br><span class="gradient-text-gold">Product & Content</span></h2><p class="section-desc">Create an <span class="highlight-green">Earnify</span> account today to begin promoting your content, or product across our network of premium websites. Reach thousands of highly engaged active users instantly.</p><div class="tag-row"><span class="tag-item">No Risk</span><span class="tag-item">No Stress</span></div></div></section>
+        <hr class="divider">
+        <section class="section-row"><div class="col-span-6"><div class="image-wrapper"><div class="image-glow-border"></div><div class="image-container"><img src="/IMG_7608.jpeg" alt="Community Allowance"></div></div></div><div class="col-span-6"><span class="badge badge-green">Community Care</span><h2 class="section-title">Introducing Earnify <br><span class="gradient-text-teal">WEEKLY SUPPORT</span></h2><p class="section-desc highlight-white">Are you a widow or a widower seeking for help? Are you from a poor family or poor background with no help?</p><p class="section-desc">Don't worry, as far as Earnify is concerned, you're rich. Join Earnify now and stand a chance to receive valuable disbursements directly to your account dynamically.</p><div class="info-card" style="border-left-color: #10b981;"><p class="info-card-label" style="color: rgba(16, 185, 129, 0.8);">Target Range Allowance</p><p class="info-card-value">₦20k to ₦40k <span style="font-size: 1.125rem; color: #34d399;">WEEKLY</span></p></div></div></section>
+        <hr class="divider">
+        <section class="section-row"><div class="col-span-6 order-lg-2"><div class="image-wrapper"><div class="image-glow-border"></div><div class="image-container"><img src="/IMG_7616.jpeg" alt="CAC Registration"></div></div></div><div class="col-span-6 order-lg-1"><span class="badge badge-gold">Regulated & Verified</span><h2 class="section-title">Officially Certified <br><span class="gradient-text-gold">& Corporate Registered</span></h2>
+        <blockquote>"This is more than a badge — it is proof."</blockquote><p class="section-desc"><span class="highlight-white">Earnify Ventures</span> is now officially certified and fully incorporated under the <span class="underline-decor highlight-white">Federal Republic of Nigeria</span>. We comply fully with corporate affairs laws to secure operations long-term.</p><div class="text-notice-box">Corporate Integrity Assured • CAC Active Business Identifier Verified</div></div></section>
+        <hr class="divider">
+        <section class="section-row"><div class="col-span-6"><div class="image-wrapper"><div class="image-glow-border"></div><div class="image-container"><img src="/IMG_7604.jpeg" alt="Cross Platform"></div></div></div><div class="col-span-6"><span class="badge badge-green">Universal Access</span><h2 class="section-title">Learn Anytime, Anywhere—<br><span class="gradient-text-green">On Any Device</span></h2><p class="section-desc">Whether you're at home, at work, or on the go, access Earnify platforms directly from your mobile browser or laptop. Enjoy a seamless, interactive experience that fits perfectly into your custom schedule.</p><ul class="list-unstyled"><li>Fast web engine, highly compressed performance asset framework</li><li>Multi-tier encryption protects connection keys globally</li></ul></div></section>
+        <hr class="divider">
+
+        <!-- ========== NEW REVIEWS SECTION ========== -->
+        <section class="reviews-section">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="badge badge-gold">❤️ Real Stories</span>
+                <h2 class="section-title">What Our <span class="gradient-text-green">Community</span> Says</h2>
+                <p>Thousands of active earners trust Earnify. Read genuine experiences from our family.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">“Killer Bean changed my life! I earned ₦15k in my first week just playing games. The weekly support is legit, received ₦40k directly. Best decision ever!”</p>
+                    <div class="review-author"><div class="author-avatar">A</div><div><div class="author-name">Amara O.</div><div class="author-role">Lagos, Nigeria</div></div></div><div class="review-badge">Verified Winner</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">“I was skeptical about online earning but Earnify is transparent. My widow allowance came through exactly as promised. The support team is responsive.”</p>
+                    <div class="review-author"><div class="author-avatar">G</div><div><div class="author-name">Grace M.</div><div class="author-role">Douala, Cameroon</div></div></div><div class="review-badge">Weekly Support</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★☆</div>
+                    <p class="review-text">“Great platform, fast payouts and the loan pool helped me start my small business. The UI is smooth and the agent rewards are huge boost.”</p>
+                    <div class="review-author"><div class="author-avatar">C</div><div><div class="author-name">Chidi E.</div><div class="author-role">Abuja, NG</div></div></div><div class="review-badge">Agent Partner</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">“I’ve earned over ₦200k total through referrals & gameplay. Earnify is more than a platform — it’s a movement. The CAC registration gave me peace of mind.”</p>
+                    <div class="review-author"><div class="author-avatar">F</div><div><div class="author-name">Faith A.</div><div class="author-role">Port Harcourt</div></div></div><div class="review-badge">Top Earner</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">“Switching to Cameroon system was seamless. Received 5,800 XAF bonus immediately. The support and weekly distribution is real!”</p>
+                    <div class="review-author"><div class="author-avatar">S</div><div><div class="author-name">Samuel N.</div><div class="author-role">Yaoundé, CM</div></div></div><div class="review-badge">Verified Member</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">“I love the transparency with the free loan pool. I was able to borrow ₦500k for my retail shop and repay flexibly. Thank you Earnify team!”</p>
+                    <div class="review-author"><div class="author-avatar">T</div><div><div class="author-name">Tunde K.</div><div class="author-role">Ibadan</div></div></div><div class="review-badge">Loan Beneficiary</div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ========== NEW FAQ SECTION (accordion) ========== -->
+        <section class="faq-section">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="badge badge-green">❓ Common Questions</span>
+                <h2 class="section-title">Frequently Asked <span class="gradient-text-green">Questions</span></h2>
+                <p>Everything you need to know about earning, payments, and community support.</p>
+            </div>
+            <div class="faq-grid max-w-3xl mx-auto" style="margin-top: 2rem;">
+                <div class="faq-item">
+                    <div class="faq-question"><span>How do I start earning on Earnify?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer">Simply sign up, choose your region (Nigeria or Cameroon), pay the activation fee (₦14,000 or 5,800 XAF) to unlock instant bonus, and start playing Killer Bean or invite friends to earn agent rewards. You'll also get access to weekly support allowance.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>Is Earnify certified and legally registered?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer">Yes, Earnify Ventures Ltd is fully incorporated under the Corporate Affairs Commission (CAC) of the Federal Republic of Nigeria. Our operations comply with all local financial and data regulations, ensuring security and trust.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>How often is the weekly support allowance paid?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer">Weekly support distribution runs every Wednesday and Sunday via automated system. Eligible members receive between ₦20k–₦40k (Nigeria) or up to 16,500 XAF (Cameroon) directly to their registered account.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>What is the Killer Bean game reward?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer">Killer Bean is an interactive board-style game on Earnify. Every player who participates has guaranteed win amounts between ₦10,000 – ₦20,000 based on performance. It's designed for fun and real monetary returns.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>Can I really receive a free loan from the pool?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer">Yes! The Earnify Free Loan Pool provides qualified members access to loans up to ₦500,000 (or 200,000 XAF) with zero interest and flexible repayment terms. Conditions apply based on activity level and loyalty.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>What payment methods are accepted?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer">We support bank transfers, mobile money (for Cameroon), and secure in-app wallets. Withdrawals are processed within 24 hours on business days, and you can track your transaction history directly on your dashboard.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- original pricing section (kept unchanged) -->
+        <section id="pricing" class="pricing-section">
+            <div class="text-center max-w-3xl mx-auto pricing-header">
+                <span class="badge badge-gold">Membership Options</span>
+                <h2>8 Figures Pricing Matrix</h2>
+                <p>Select your regional distribution system below to see explicit localized rewards matrices.</p>
+                <div class="tab-container"><button id="tab-ng" class="tab-btn active" onclick="switchTab('nigeria')">Nigeria Network</button><button id="tab-cm" class="tab-btn" onclick="switchTab('cameroon')">Cameroon System</button></div>
+            </div>
+            <div class="display-box">
+                <div class="col-span-5 text-center"><div class="tab-image-container"><img id="img-ng" class="tab-img active" src="/IMG_7612.jpeg" alt="Nigeria Plan"><img id="img-cm" class="tab-img" src="image.png" alt="Cameroon Plan"></div></div>
+                <div class="col-span-7"><div id="pane-ng" class="pane-content active"><h3 class="pane-title">Nigeria Premium Vault Matrix</h3><div class="metrics-grid"><div class="metric-tile"><p class="metric-label">Activation Fee</p><p class="metric-val-green">₦14,000</p></div><div class="metric-tile"><p class="metric-label">Free Bonus</p><p class="metric-val-green">₦14,000</p></div><div class="metric-tile"><p class="metric-label">Agent Rewards</p><p class="metric-val-green">₦12,000</p></div><div class="metric-tile"><p class="metric-label">Killer Bean Reward</p><p class="metric-val-gold">₦10,000</p></div><div class="metric-tile"><p class="metric-label">Weekly Support</p><p class="metric-val-gold">₦40,000</p></div><div class="metric-tile"><p class="metric-label">Free Loan Pool</p><p class="metric-val-gold">₦500,000</p></div></div><div class="pool-banner"><p class="pool-label">Earnify Weekly Allowance Pool</p><p class="pool-value">₦150,000</p></div></div><div id="pane-cm" class="pane-content"><h3 class="pane-title">Cameroon Centralized Earning System</h3><div class="metrics-grid"><div class="metric-tile"><p class="metric-label">Activation Fee</p><p class="metric-val-green">5,800 XAF</p></div><div class="metric-tile"><p class="metric-label">Free Bonus</p><p class="metric-val-green">5,800 XAF</p></div><div class="metric-tile"><p class="metric-label">Agent Rewards</p><p class="metric-val-green">5,000 XAF</p></div><div class="metric-tile"><p class="metric-label">Killer Bean Reward</p><p class="metric-val-gold">4,150 XAF</p></div><div class="metric-tile"><p class="metric-label">Weekly Support</p><p class="metric-val-gold">16,500 XAF</p></div><div class="metric-tile"><p class="metric-label">Free Loan Pool</p><p class="metric-val-gold">200,000 XAF</p></div></div><div class="pool-banner"><p class="pool-label">Weekly Allowance System</p><p class="pool-value">61,900 XAF</p></div></div><div class="alert-box"><div class="alert-text"><span class="alert-heading">Agent Broadcast Notification Schedules</span> Processing cycles deploy automatically on <span class="alert-underline">Wednesdays</span> and <span class="alert-underline">Sundays</span> across all registered profile nationals.</div></div></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="max-w-7xl footer-inner"><p>&copy; 2026 Earnify Ventures Ltd. High-Performance Financial Gaming Portal.</p><div class="footer-links"><a href="#">Terms of Use</a><a href="#">Privacy Infrastructure</a></div></div>
+    </footer>
+
+    <script>
+        function switchTab(region) {
+            const tabNg = document.getElementById('tab-ng');
+            const tabCm = document.getElementById('tab-cm');
+            const paneNg = document.getElementById('pane-ng');
+            const paneCm = document.getElementById('pane-cm');
+            const imgNg = document.getElementById('img-ng');
+            const imgCm = document.getElementById('img-cm');
+            if (region === 'nigeria') {
+                tabNg.classList.add('active'); tabCm.classList.remove('active');
+                paneNg.classList.add('active'); paneCm.classList.remove('active');
+                imgNg.classList.add('active'); imgCm.classList.remove('active');
+            } else {
+                tabCm.classList.add('active'); tabNg.classList.remove('active');
+                paneCm.classList.add('active'); paneNg.classList.remove('active');
+                imgCm.classList.add('active'); imgNg.classList.remove('active');
+            }
+        }
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const questionDiv = item.querySelector('.faq-question');
+            questionDiv.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+        // open first faq by default for better UX
+        if(faqItems.length) faqItems[0].classList.add('active');
+    </script>
+</body>
+</html>

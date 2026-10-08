@@ -1,0 +1,72 @@
+<div class="column w-full g-10px">
+                    <div style="border:1px solid rgb(0,255,0);color:rgb(0,255,0)" class="p-5px w-fit br-5px m-left-auto p-x-10px">
+                        +{{ $CurrencyHelper::format($data->reward,'NGN',$display_currency) }}
+                      </div>
+                      {{-- new row --}}
+                    <div class="row align-center space-between g-10px">
+                        {{-- new --}}
+                        <span>Get {{ number_format($data->referrals) }} referral{{ $data->referrals > 1 ? 's' : '' }} to make their first deposit</span>
+                  
+                    </div>
+                    <div class="w-full bg-rgt-005 p-20px br-10px row align-center space-between">
+                        <div class="column w-full align-center">
+                            <strong class="font-weight-900 font-size-1-2">{{ min($ref,$data->referrals) }}</strong>
+                            <span class="opacity-07 font-size-06">Current</span>
+                        </div>
+                         <div class="column w-full align-center">
+                            <strong class="font-weight-900 font-size-1-2">{{ $data->referrals }}</strong>
+                            <span class="opacity-07 font-size-06">Target</span>
+                        </div>
+                         <div class="column w-full align-center">
+                            <strong class="font-weight-900 font-size-1-2">{{ round((min($ref,$data->referrals) * 100)/$data->referrals) }}%</strong>
+                            <span class="opacity-07 font-size-06">Progress</span>
+                        </div>
+                    </div>
+                    {{-- new column --}}
+                    <div class="column g-5px w-full">
+                        {{-- new row --}}
+                        <div class="opacity-07 space-between align-center row font-size-06">
+                            <span>Progress</span>
+                            <span>{{ round((min($ref,$data->referrals) * 100)/$data->referrals) }}%</span>
+                        </div>
+                        {{-- new  --}}
+                        <div class="w-full overflow-hidden h-5px br-1000px bg-rgt-01">
+                            <div style="width:{{ round((min($ref,$data->referrals) * 100)/$data->referrals) }}%" class="h-full bg-primary br-1000"></div>
+                        </div>
+                    </div>
+                     
+                    @if (round((min($ref,$data->referrals) * 100)/$data->referrals) >= 100 && $data->earned == 0)
+                        <button x-data="{  }" x-on:click="
+                        Processing = true;
+                        SendGetRequest('{{ url('users/get/claim/salary') }}',{
+                            'id' : '{{ $data->id }}'
+                        },function(response,error){
+                            Processing = false;
+                            if(error){
+                                alert(error);
+                            }
+                            if(response){
+                                let data=JSON.parse(response);
+                                CreateNotify(data.status,data.message);
+                                if(data.status == 'success'){
+                                    Vitecss.navigate('{{ url()->current() }}');
+                                }
+                            }
+                        })
+                        " x-text="Processing ? 'Claiming...' : 'Claim Reward'" x-bind:class="Processing ? 'disabled' : ''" class="btn-primary font-weight-800 font-size-1 h-50px w-full br-1000px"></button>
+                    @endif
+                    @if (!(round((min($ref,$data->referrals) * 100)/$data->referrals) >= 100 && $data->earned == 0))
+
+                    <div class="w-full br-1000px h-50px {{ $data->earned == 1 ? 'bg-green-transparent c-green' : 'bg-primary-03 c-primary' }} font-weight-800 font-size-1 row align-center g-5px justify-center no-select">
+                        @if ($data->earned == 1)
+                        <svg viewBox="0 0 24 24" fill="CurrentColor" xmlns="http://www.w3.org/2000/svg" height="20" width="20"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM17.4571 9.45711L11 15.9142L6.79289 11.7071L8.20711 10.2929L11 13.0858L16.0429 8.04289L17.4571 9.45711Z"></path></svg>
+
+                        Completed
+                            @else
+                            <svg viewBox="0 0 24 24" fill="CurrentColor" xmlns="http://www.w3.org/2000/svg" height="20" width="20"><path d="M6 4H4V2H20V4H18V6C18 7.61543 17.1838 8.91468 16.1561 9.97667C15.4532 10.703 14.598 11.372 13.7309 12C14.598 12.628 15.4532 13.297 16.1561 14.0233C17.1838 15.0853 18 16.3846 18 18V20H20V22H4V20H6V18C6 16.3846 6.81616 15.0853 7.8439 14.0233C8.54682 13.297 9.40202 12.628 10.2691 12C9.40202 11.372 8.54682 10.703 7.8439 9.97667C6.81616 8.91468 6 7.61543 6 6V4ZM8 4V6C8 6.68514 8.26026 7.33499 8.77131 8H15.2287C15.7397 7.33499 16 6.68514 16 6V4H8ZM12 13.2219C10.9548 13.9602 10.008 14.663 9.2811 15.4142C9.09008 15.6116 8.92007 15.8064 8.77131 16H15.2287C15.0799 15.8064 14.9099 15.6116 14.7189 15.4142C13.992 14.663 13.0452 13.9602 12 13.2219Z"></path></svg>
+                            
+                            In Progress
+                        @endif
+                    </div>
+                    @endif
+                  </div>

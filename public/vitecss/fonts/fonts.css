@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-LightItalic.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-LightItalic.woff') format('woff');
+    font-weight:100 200;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-Light.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-Light.woff') format('woff');
+    font-weight: 100 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-RegularItalic.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-RegularItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-Regular.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-Semibold.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-Semibold.woff') format('woff');
+    font-weight:400 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-SemiboldItalic.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-SemiboldItalic.woff') format('woff');
+    font-weight:400 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-BoldItalic.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-Bold.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-Heavy.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-Heavy.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-HeavyItalic.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-HeavyItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-BlackItalic.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vite Sans Display';
+    src: url('./vite_sans/ViteSansDisplay-Black.woff2') format('woff2'),
+        url('./vite_sans/ViteSansDisplay-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* anton */
+@font-face {
+  font-family: 'anton';
+  src: url('./Anton/Anton-Regular.ttf');
+  font-display:swap;
+}
+/* libre bar code */
+@font-face {
+    font-family: 'bar code';
+    src: url('./LibreBarcode39-Regular.ttf');
+}

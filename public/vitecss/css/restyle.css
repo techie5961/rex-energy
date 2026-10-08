@@ -1,0 +1,151 @@
+/* notify */
+.notify, .notification {
+    position:fixed;
+    top:0;
+    right:0;
+    width:70%;
+    z-index:7000;
+   margin:10px 10px 10px 20%;
+   background:black;
+   color:var(--primary);
+    display:flex;
+    border-radius:10px;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+    animation:come-in 0.5s ease forwards;
+    user-select: none;
+    max-width:500px;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    box-shadow:0 0px 10px rgba(0,0,0,0.1);
+    padding:10px;
+    
+}
+@keyframes come-in{
+   0%{
+    transform:translateY(-100vh);
+   }
+   100%{
+    transform:translateY(0)
+   }
+}
+@keyframes absolute-in-from-right{
+    0%{
+        right:-100%;
+    }
+    100%{
+        right:0;
+    }
+}
+@keyframes absolute-in-from-left{
+    0%{
+        left:-100%;
+    }
+    100%{
+        left:0;
+    }
+}
+
+.notify .notify-body .close, .notification .notification-body .close {
+    min-height:20px;
+    min-width:20px;
+    max-height:20px;
+    max-width:20px;
+    background-position:center;
+    background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22white%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20d%3D%22M204.24%2C195.76a6%2C6%2C0%2C1%2C1-8.48%2C8.48L128%2C136.49%2C60.24%2C204.24a6%2C6%2C0%2C0%2C1-8.48-8.48L119.51%2C128%2C51.76%2C60.24a6%2C6%2C0%2C0%2C1%2C8.48-8.48L128%2C119.51l67.76-67.75a6%2C6%2C0%2C0%2C1%2C8.48%2C8.48L136.49%2C128Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
+}
+.notify .notify-status, .notification .notification-status {
+    font-size:0.9rem;
+    font-weight:800;
+}
+
+.notify.success, .notification.success {
+      color:rgb(0,255,0);
+}
+.notify.success .body .icon, .notification.success .body .icon {
+   min-height:32px;
+    max-height:32px;
+    aspect-ratio:1;
+    background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23ffffff%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20d%3D%22M128%2C24A104%2C104%2C0%2C1%2C0%2C232%2C128%2C104.11%2C104.11%2C0%2C0%2C0%2C128%2C24Zm45.66%2C85.66-56%2C56a8%2C8%2C0%2C0%2C1-11.32%2C0l-24-24a8%2C8%2C0%2C0%2C1%2C11.32-11.32L112%2C148.69l50.34-50.35a8%2C8%2C0%2C0%2C1%2C11.32%2C11.32Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
+
+
+}
+.notify.error, .notification.error {
+    color:rgb(255, 96, 96);
+   
+}
+.notify.info, .notification.info {
+    color:rgb(0, 255, 255);
+}
+.notify.warning, .notification.warning {
+    color:gold;
+    
+}
+.notify.error .body .icon, .notification.error .body .icon {
+   min-height:32px;
+    max-height:32px;
+    aspect-ratio:1;
+    background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23ffffff%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20d%3D%22M128%2C24A104%2C104%2C0%2C1%2C0%2C232%2C128%2C104.11%2C104.11%2C0%2C0%2C0%2C128%2C24Zm37.66%2C130.34a8%2C8%2C0%2C0%2C1-11.32%2C11.32L128%2C139.31l-26.34%2C26.35a8%2C8%2C0%2C0%2C1-11.32-11.32L116.69%2C128%2C90.34%2C101.66a8%2C8%2C0%2C0%2C1%2C11.32-11.32L128%2C116.69l26.34-26.35a8%2C8%2C0%2C0%2C1%2C11.32%2C11.32L139.31%2C128Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
+    
+
+}
+.cont, .container-input {
+    width:100%;
+    height:50px;
+    border:1px solid var(--rgt-02);
+    border-radius:10px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    overflow:hidden;
+    background:transparent;
+    padding:0;
+}
+
+.cont:has(textarea), .container-input:has(textarea) {
+    min-height:200px !important;
+}
+.cont .inp, .container-input .input-field {
+    width:100%;
+    height:100%;
+    border:none;
+    background:transparent;
+    border-radius:inherit;
+
+}
+.cont:has(input:focus), .container-input:has(input:focus) {
+    border-color:var(--primary) !important;
+    box-shadow: 0 0 0 3px var(--primary-01);
+}
+input.empty, select.empty, .cont.empty, .input.empty, .select.empty, .container-input.empty {
+    border:1px solid red !important;
+    box-shadow:var(--box-shadow-red) !important;
+    animation:vibrate 0.2s linear !important;
+    
+}
+.vite-loader .child{
+    background:var(--secondary);
+}
+button.post{
+    background:var(--primary);
+    border-radius:10px;
+}
+.status.green{
+    color:#4caf50;
+    background:rgba(76, 175, 80,0.1);
+
+
+}
+.status.red{
+    color:red;
+    background:rgba(255, 0, 0,0.1);
+    
+
+}
+.status.gold{
+    color:#a58d03;
+    background:rgba(161, 137, 0, 0.1);
+    
+
+}

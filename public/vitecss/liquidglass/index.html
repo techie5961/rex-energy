@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Glass Demo</title>
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            min-width: 100vw;
+            font-family: 'SF Pro', sans-serif;
+        }
+
+        #root {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .my-glass {
+            position: absolute;  /* or relative with positioning */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 70px;
+            border-radius: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <img src="../upload/uploads/IMG_7827.jpeg" alt="Background">
+        <div class="my-glass">Glass Panel</div>
+    </div>
+
+    <script type="module">
+        import { LiquidGlass } from 'http://172.20.10.5/vitecss/liquidglass/dist/index.js';
+        
+        // Option B: Using .then() (cleaner)
+        LiquidGlass.init({
+            root: document.querySelector('#root'),
+            glassElements: document.querySelectorAll('.my-glass'),
+            defaults: {
+                cornerRadius: 24,
+                refraction: 0.8,
+                blurAmount: 0.2,      // Add some blur for better effect
+                edgeHighlight: 0.1,    // Add rim lighting
+                opacity: 0.9
+            },
+        }).then(instance => {
+            console.log('✨ LiquidGlass ready!');
+            // Save instance if you need to call markChanged() later
+            window.glassInstance = instance;
+        }).catch(error => {
+            console.error(error);
+            alert('Failed to initialize: ' + error.message);
+        });
+    </script>
+</body>
+</html>

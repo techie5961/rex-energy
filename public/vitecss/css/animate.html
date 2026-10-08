@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate.css CDN - Complete Animation Library</title>
+    
+    <!-- Animate.css CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .btn {
+            background: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #667eea;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .demo-area {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .demo-box {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .current-animation {
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .preview-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .animation-class {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .animation-category {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: white;
+            margin: 30px 0 15px 0;
+            font-size: 1.8em;
+        }
+
+        .note {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown">🎨 Animate.css CDN</h1>
+        <div class="subtitle animate__animated animate__fadeInUp">Complete CSS Animation Library - 100+ Animations</div>
+
+        <div class="demo-area">
+            <div class="demo-box" id="demoBox">
+                Click Any Animation
+            </div>
+            <div class="controls">
+                <button class="btn" onclick="applyAnimation('animate__bounce')">Bounce</button>
+                <button class="btn" onclick="applyAnimation('animate__shakeX')">Shake</button>
+                <button class="btn" onclick="applyAnimation('animate__pulse')">Pulse</button>
+                <button class="btn" onclick="applyAnimation('animate__flash')">Flash</button>
+                <button class="btn" onclick="applyAnimation('animate__heartBeat')">Heart Beat</button>
+                <button class="btn" onclick="resetAnimation()">Reset</button>
+            </div>
+            <div class="current-animation" id="currentAnim">Current: None</div>
+        </div>
+
+        <h2>✨ Entrance Animations</h2>
+        <div class="grid" id="entranceGrid"></div>
+
+        <h2>🎯 Attention Seekers</h2>
+        <div class="grid" id="attentionGrid"></div>
+
+        <h2>🔄 Special Animations</h2>
+        <div class="grid" id="specialGrid"></div>
+
+        <div class="note">
+            💡 <strong>Pro Tip:</strong> Hover over any card to preview | Click to apply to demo box<br>
+            All animations from <strong>Animate.css CDN</strong> - No additional code needed!
+        </div>
+    </div>
+
+    <script>
+        // All animations from Animate.css
+        const entranceAnimations = [
+            { name: 'Fade In', class: 'animate__fadeIn' },
+            { name: 'Fade In Down', class: 'animate__fadeInDown' },
+            { name: 'Fade In Up', class: 'animate__fadeInUp' },
+            { name: 'Fade In Left', class: 'animate__fadeInLeft' },
+            { name: 'Fade In Right', class: 'animate__fadeInRight' },
+            { name: 'Zoom In', class: 'animate__zoomIn' },
+            { name: 'Zoom In Down', class: 'animate__zoomInDown' },
+            { name: 'Zoom In Up', class: 'animate__zoomInUp' },
+            { name: 'Zoom In Left', class: 'animate__zoomInLeft' },
+            { name: 'Zoom In Right', class: 'animate__zoomInRight' },
+            { name: 'Slide In Down', class: 'animate__slideInDown' },
+            { name: 'Slide In Up', class: 'animate__slideInUp' },
+            { name: 'Slide In Left', class: 'animate__slideInLeft' },
+            { name: 'Slide In Right', class: 'animate__slideInRight' },
+            { name: 'Bounce In', class: 'animate__bounceIn' },
+            { name: 'Bounce In Down', class: 'animate__bounceInDown' },
+            { name: 'Bounce In Up', class: 'animate__bounceInUp' },
+            { name: 'Bounce In Left', class: 'animate__bounceInLeft' },
+            { name: 'Bounce In Right', class: 'animate__bounceInRight' },
+            { name: 'Rotate In', class: 'animate__rotateIn' },
+            { name: 'Rotate In Down Left', class: 'animate__rotateInDownLeft' },
+            { name: 'Rotate In Up Left', class: 'animate__rotateInUpLeft' },
+            { name: 'Rotate In Down Right', class: 'animate__rotateInDownRight' },
+            { name: 'Rotate In Up Right', class: 'animate__rotateInUpRight' },
+            { name: 'Flip In X', class: 'animate__flipInX' },
+            { name: 'Flip In Y', class: 'animate__flipInY' },
+            { name: 'Light Speed In Right', class: 'animate__lightSpeedInRight' },
+            { name: 'Light Speed In Left', class: 'animate__lightSpeedInLeft' }
+        ];
+
+        const attentionAnimations = [
+            { name: 'Bounce', class: 'animate__bounce' },
+            { name: 'Flash', class: 'animate__flash' },
+            { name: 'Pulse', class: 'animate__pulse' },
+            { name: 'Rubber Band', class: 'animate__rubberBand' },
+            { name: 'Shake X', class: 'animate__shakeX' },
+            { name: 'Shake Y', class: 'animate__shakeY' },
+            { name: 'Head Shake', class: 'animate__headShake' },
+            { name: 'Swing', class: 'animate__swing' },
+            { name: 'Tada', class: 'animate__tada' },
+            { name: 'Wobble', class: 'animate__wobble' },
+            { name: 'Jello', class: 'animate__jello' },
+            { name: 'Heart Beat', class: 'animate__heartBeat' },
+            { name: 'Hinge', class: 'animate__hinge' },
+            { name: 'Jack in the Box', class: 'animate__jackInTheBox' }
+        ];
+
+        const specialAnimations = [
+            { name: 'Fade Out', class: 'animate__fadeOut' },
+            { name: 'Zoom Out', class: 'animate__zoomOut' },
+            { name: 'Slide Out', class: 'animate__slideOutUp' },
+            { name: 'Bounce Out', class: 'animate__bounceOut' },
+            { name: 'Rotate Out', class: 'animate__rotateOut' },
+            { name: 'Flip Out X', class: 'animate__flipOutX' },
+            { name: 'Flip Out Y', class: 'animate__flipOutY' },
+            { name: 'Light Speed Out', class: 'animate__lightSpeedOutRight' },
+            { name: 'Back In Down', class: 'animate__backInDown' },
+            { name: 'Back In Up', class: 'animate__backInUp' },
+            { name: 'Back In Left', class: 'animate__backInLeft' },
+            { name: 'Back In Right', class: 'animate__backInRight' }
+        ];
+
+        function createGrid(animations, containerId) {
+            const container = document.getElementById(containerId);
+            animations.forEach(anim => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.onclick = () => applyAnimation(anim.class);
+                card.onmouseenter = () => previewAnimation(anim.class, card);
+                card.onmouseleave = () => removePreview(card);
+                
+                card.innerHTML = `
+                    <div class="preview-box" id="preview-${anim.class.replace(/[^a-zA-Z0-9]/g, '')}">
+                        Preview
+                    </div>
+                    <div class="animation-class">${anim.name}</div>
+                    <div class="animation-category">${anim.class}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function applyAnimation(animationClass) {
+            const demo = document.getElementById('demoBox');
+            const currentDiv = document.getElementById('currentAnim');
+            
+            // Remove all animate.css classes
+            const allAnimClasses = [
+                ...entranceAnimations.map(a => a.class),
+                ...attentionAnimations.map(a => a.class),
+                ...specialAnimations.map(a => a.class)
+            ];
+            demo.classList.remove(...allAnimClasses);
+            
+            if (animationClass === 'reset') {
+                currentDiv.textContent = 'Current: None';
+                return;
+            }
+            
+            // Add the animation class
+            demo.classList.add('animate__animated', animationClass);
+            currentDiv.textContent = `Current: ${animationClass.replace('animate__', '')}`;
+            
+            // Remove animation after it completes
+            setTimeout(() => {
+                demo.classList.remove(animationClass);
+                if (currentDiv.textContent === `Current: ${animationClass.replace('animate__', '')}`) {
+                    // Keep the class only for infinite animations
+                    const infiniteAnims = ['animate__bounce', 'animate__pulse', 'animate__flash', 
+                                          'animate__heartBeat', 'animate__rubberBand', 'animate__swing',
+                                          'animate__tada', 'animate__wobble', 'animate__jello'];
+                    if (!infiniteAnims.includes(animationClass)) {
+                        demo.classList.remove(animationClass);
+                    }
+                }
+            }, 1000);
+        }
+
+        function resetAnimation() {
+            const demo = document.getElementById('demoBox');
+            const allAnimClasses = [
+                ...entranceAnimations.map(a => a.class),
+                ...attentionAnimations.map(a => a.class),
+                ...specialAnimations.map(a => a.class)
+            ];
+            demo.classList.remove(...allAnimClasses);
+            document.getElementById('currentAnim').textContent = 'Current: None';
+        }
+
+        function previewAnimation(animationClass, card) {
+            const previewBox = card.querySelector('.preview-box');
+            if (previewBox) {
+                previewBox.classList.add('animate__animated', animationClass);
+            }
+        }
+
+        function removePreview(card) {
+            const previewBox = card.querySelector('.preview-box');
+            if (previewBox) {
+                const allAnimClasses = [
+                    ...entranceAnimations.map(a => a.class),
+                    ...attentionAnimations.map(a => a.class),
+                    ...specialAnimations.map(a => a.class)
+                ];
+                previewBox.classList.remove('animate__animated', ...allAnimClasses);
+            }
+        }
+
+        // Initialize grids
+        createGrid(entranceAnimations, 'entranceGrid');
+        createGrid(attentionAnimations, 'attentionGrid');
+        createGrid(specialAnimations, 'specialGrid');
+
+        // Animate title on load
+        window.addEventListener('load', () => {
+            document.querySelector('h1').classList.add('animate__animated', 'animate__fadeInDown');
+            document.querySelector('.subtitle').classList.add('animate__animated', 'animate__fadeInUp');
+        });
+    </script>
+</body>
+</html>
